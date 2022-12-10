@@ -1,0 +1,30 @@
+.navbar {
+  background-color: $blueish;
+  &-brand {
+    @include nav-links;
+    &:hover {
+      color: $greenish;
+    }
+  }
+  &-toggler {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $white;
+    border-color: $white;
+  }
+}
+.nav-link {
+  @include nav-links;
+
+  &:hover {
+    color: $greenish;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+.collapsed {
+  background-color: $greenish;
+  border: none;
+}

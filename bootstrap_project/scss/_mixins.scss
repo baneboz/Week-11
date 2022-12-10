@@ -1,0 +1,10 @@
+@mixin nav-links {
+  color: $white;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+@mixin title {
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: center;
+}
