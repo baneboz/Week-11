@@ -19,10 +19,16 @@ body {
   height: 0;
   border: 2px solid $white;
   margin-inline: 7px;
+  &--b {
+    border-color: #000;
+  }
 }
 
 .about {
   background-color: $greenish;
+  .container {
+    max-width: 720px !important;
+  }
 }
 .get-more {
   &:hover {
@@ -36,11 +42,18 @@ footer {
     li {
       padding-inline: 0.25rem;
     }
-    i {
+    a {
+      display: inline-block;
+      color: $white;
       padding: 0.5rem;
+      width: 40px;
+      height: 40px;
       border: 1px solid $white;
       border-radius: 100%;
-      width: 37px;
+      &:hover {
+        color: $greenish;
+        border-color: $greenish;
+      }
     }
   }
 }

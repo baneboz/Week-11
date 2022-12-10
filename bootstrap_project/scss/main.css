@@ -24,9 +24,15 @@ body {
   border: 2px solid #fff;
   margin-inline: 7px;
 }
+.separator-line--b {
+  border-color: #000;
+}
 
 .about {
   background-color: #18bc9c;
+}
+.about .container {
+  max-width: 720px !important;
 }
 
 .get-more:hover {
@@ -42,11 +48,18 @@ footer ul {
 footer ul li {
   padding-inline: 0.25rem;
 }
-footer ul i {
+footer ul a {
+  display: inline-block;
+  color: #fff;
   padding: 0.5rem;
+  width: 40px;
+  height: 40px;
   border: 1px solid #fff;
   border-radius: 100%;
-  width: 37px;
+}
+footer ul a:hover {
+  color: #18bc9c;
+  border-color: #18bc9c;
 }
 
 .navbar {
@@ -91,4 +104,25 @@ footer ul i {
 
 .portfolio img {
   margin-block-end: 1rem;
+}
+
+.contact .container {
+  max-width: 720px !important;
+}
+
+.form-control {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid gray;
+  padding-block-end: 1rem;
+  margin-block-end: 2rem;
+  font-weight: 700;
+}
+
+.btn-success {
+  background-color: #18bc9c;
+  border: none;
+}
+.btn-success:hover {
+  background-color: #2c3e50;
 }/*# sourceMappingURL=main.css.map */
