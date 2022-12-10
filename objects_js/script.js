@@ -192,8 +192,28 @@ mostExpensive([
 // Examples:
 // mapLetters("dodo") ➞ { d: [0, 2], o: [1, 3] }
 // mapLetters("froggy") ➞ { f: [0], r: [1], o: [2], g: [3, 4], y: [5] }
-// mapLetters("graapes") ➞ { g: [0], r: [1], a: [2], p: [3], e: [4], s: [5]
+// mapLetters("graapes") ➞ { g: [0], r: [1], a: [2], p: [3], e: [4], s: [5] }
+function mapLetters(word) {
+  let result = {};
 
+  for (let i = 0; i < word.length; i++) {
+    result[word[i]] = [];
+  }
+
+  let keys = [...Object.keys(result)];
+
+  for (let j = 0; j < word.length; j++) {
+    for (let k = 0; k < keys.length; k++) {
+      if (word[j] === keys[k]) {
+        result[word[j]].push(j);
+      }
+    }
+  }
+
+  return result;
+}
+
+console.log(mapLetters("graapes"));
 // And who cursed the most in the fight between you and your spouse?
 // Given an object with three rounds, with nested objects as your scores
 // per round, return a string of who cursed the most: If you, return "ME!"
