@@ -135,7 +135,7 @@ function totalPrice(groceries) {
     sum += groceries[i].quantity * groceries[i].price;
   }
 
-  return sum;
+  return `The sum of groceries is: ${sum}`;
 }
 
 console.log(
@@ -179,7 +179,6 @@ function mostExpensive(jewelry) {
     }
   }
   console.log(`The most expensive one is the ${highestName}.`);
-  // return result;
 }
 
 mostExpensive([
@@ -188,26 +187,12 @@ mostExpensive([
   { name: "The One Ring", price: 1000000 },
 ]);
 
-// Given a word, create an object that stores the indexes of each letter in
-// an array.
-// Make sure the letters are the keys.
-// Make sure the letters are symbols.
+// Given a word, create an object that stores the indexes of each letter in an array. Make sure the letters are the keys.
 // Make sure the indexes are stored in an array and those arrays are values.
 // Examples:
 // mapLetters("dodo") ➞ { d: [0, 2], o: [1, 3] }
 // mapLetters("froggy") ➞ { f: [0], r: [1], o: [2], g: [3, 4], y: [5] }
-// mapLetters("grapes") ➞ { g: [0], r: [1], a: [2], p: [3], e: [4], s: [5]
-// function mapLetters(word) {
-//   let result = {};
-
-//   for (let i = 0; i < word.length; i++) {
-//     result[word[i]] = [i];
-//   }
-
-//   console.log(result.d[0]);
-//   return result;
-// }
-// console.log(mapLetters("dodo"));
+// mapLetters("graapes") ➞ { g: [0], r: [1], a: [2], p: [3], e: [4], s: [5]
 
 // And who cursed the most in the fight between you and your spouse?
 // Given an object with three rounds, with nested objects as your scores
@@ -258,21 +243,37 @@ console.log(rgbToHex({ red: 0, green: 128, blue: 192 }));
 
 // Create a function that takes an amount of monetary change (e.g. 47 cents) and breaks down the most efficient way that change can be made using USD quarters, dimes, nickels and pennies. Your function should return an object.
 //   CoinValue
-//   Penny 0.01
-//   Nickel 0.05
-//   Dime 0.10
-//   Quarter 0.25
+//   Penny 1c
+//   Nickel 5c
+//   Dime 10c
+//   Quarter 25c
 
 //   Examples:
 //   makeChange(47) ➞ { "q": 1, "d": 2, "n": 0, "p": 2 }
 //   makeChange(24) ➞ { "q": 0, "d": 2, "n": 0, "p": 4 }
 //   makeChange(92) ➞ { "q": 3, "d": 1, "n": 1, "p": 2 }
 
-// const makeChange = function (change) {
-//   // 47 * 0.5
-//   // q, d, n, p
-// };
-// console.log(makeChange(47));
+const makeChange = function (change) {
+  const result = { q: 0, d: 0, n: 0, p: 0 };
+
+  while (change > 0) {
+    if (change >= 25) {
+      change -= 25;
+      result.q++;
+    } else if (change >= 10) {
+      change -= 10;
+      result.d++;
+    } else if (change >= 5) {
+      change -= 5;
+      result.n++;
+    } else if (change >= 1) {
+      change -= 1;
+      result.p++;
+    }
+  }
+  return result;
+};
+console.log(makeChange(47));
 
 // Create a function that takes an array of objects like { name: "John", notes: [3, 5, 4]} and returns an array of objects like { name: "John", avgNote: 4 }. If student has no notes (an empty array) then let's assume avgNote: 0.
 // Examples:
@@ -344,12 +345,30 @@ const getBestStudent = function (students) {
     };
   }
 
-  // return studentsWithAvg;
+  let highestAvg = studentsWithAvg[0].avgTest;
+  let highestName = studentsWithAvg[0].name;
+
+  for (let k = 0; k < studentsWithAvg.length; k++) {
+    if (studentsWithAvg[k].avgTest > highestAvg) {
+      highestName = studentsWithAvg[k].name;
+    }
+  }
+
+  return `And the best student is: ${highestName}!`;
 };
 
+// let highestPrice = jewelry[0].price;
+// let highestName = jewelry[0].name;
+
+// for (let i = 0; i < jewelry.length; i++) {
+//   if (jewelry[i].price > highestPrice) {
+//     highestName = jewelry[i].name;
+//   }
+// }
 console.log(
   getBestStudent([
     { name: "John", grades: [100, 90, 80] },
     { name: "Bob", grades: [100, 70, 80] },
+    { name: "Bane", grades: [100, 100, 80] },
   ])
 );
